@@ -154,3 +154,16 @@ predict(model.3,newdata,interval="prediction")
 
 
 The equation of SIMS is -5.43 + 0.037 * ARM + 0.024 * GRIP  
+
+
+```{r}
+anova(model.1,model.3)
+```
+
+P-value= 0.00000499
+
+# conclution
+The P-value is very small (0.00000499) so we reject the Null Hypothesis. Conclusion is that Model.3 is the best model, the bigger the better.
+
+
+
