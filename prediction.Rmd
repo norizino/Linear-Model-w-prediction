@@ -40,7 +40,7 @@ basicNN + geom_point()
 ```
   
   
-  
+ This is the scatter plot shows positive relations between ARM & SIMS. Equation of the line is SIMS= -4.1 + 0.05 * ARM. The adjusted R squared is 0.47. Residual Standard Error is 1.226, the residual standard Error is the standard deviation of the normal spread of errors on any point of the line. 
   
   
 # Numerical results
@@ -49,7 +49,7 @@ basicNN + geom_point()
 cor(SIMS~ARM,data=data)
 ```
 
-
+This shows the cor dtad of SIMS & ARM
 
 # Inferential  (Build linear model)
   
@@ -58,12 +58,15 @@ model.1 <- lm(SIMS~ARM,data=data)
 summary.lm(model.1)
 ```
 
+
+This is showing that the residuals of the min, median and max is: -3.6467 -0.0285  3.0770, and the P value is greater than 0.00000000000000022 (very small). 
+
 ```{r}
 newdata=data.frame(GRIP=94,ARM=88)
 predict(model.1,newdata,interval="prediction")
 ```
 
-
+This is showing the prediction of Model.1 and its equation SIMS=  -4.1 + 0.05 * ARM. Also a new cunk was added to predict the models.
 
 
 # now add the model fit to our plot
@@ -75,9 +78,9 @@ basicNN + geom_point() + geom_smooth(method=lm)
 
 
 The equation of SIMS explained by ARM is
-SIMS= -4.1 + 0.0545 * ARM
+SIMS= -4.1 + 0.05 * ARM.
 
-
+This graph shows the positive relations between SIMS & ARM.
 
 
 #                     SIMS~GRIP
@@ -97,7 +100,7 @@ basicGG <- ggplot(data,aes(y=SIMS,x=GRIP))
 basicGG + geom_point()
 ```
   
-  
+ This is the scatter plot shows positive relations between GRIP & SIMS. Equation of the line is SIMS= -4.80 + 0.0455 * GRIP. The adjusted R squared is 0.405. Residual Standard Error is 1.295, the residual standard Error is the standard deviation of the normal spread of errors on any point of the line.  
   
   
   
@@ -107,7 +110,7 @@ basicGG + geom_point()
 cor(SIMS~GRIP,data=data)
 ```
 
-
+This shows the cor data for SIMS~GRIP is 0.064.
 
 # Inferential  (Build linear model)
   
@@ -117,8 +120,7 @@ summary.lm(model.2)
 predict(model.2,newdata,interval="prediction")
 ```
 
-
-
+This is showing that the prediction of Model.2 and its equation of SIMS, SIMS= -4.80 + 0.0455 * GRIP.
 # now add the model fit to our plot
   
 ```{r}
@@ -128,7 +130,7 @@ basicGG + geom_point() + geom_smooth(method=lm)
 
 The equation of SIMS explained by GRIP is
 SIMS= -4.80 + 0.0455 * GRIP
-
+This is the scatter plot shows positive relations between GRIP & SIMS.
 
 
 
@@ -153,13 +155,13 @@ predict(model.3,newdata,interval="prediction")
 ```
 
 
-The equation of SIMS is -5.43 + 0.037 * ARM + 0.024 * GRIP  
+This is showing the prediction of model.3 and its equation. The equation of SIMS is -5.43 + 0.037 * ARM + 0.024 * GRIP  
 
 
 ```{r}
 anova(model.1,model.3)
 ```
-
+This is comparing all the models to see which is the best/ has less errors.
 P-value= 0.00000499
 
 # conclution
